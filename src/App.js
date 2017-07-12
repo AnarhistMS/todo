@@ -28,18 +28,8 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>KoKo TODO App</h2>
+            <h2>KoKo TODO App</h2>
         </div>
-      <fieldset>
-        <legend>Enter task name</legend>
-        <input value={todoname}
-               onChange={this.handleNameChange} />
-      </fieldset>
-      <fieldset>
-        <legend>Enter task text</legend>
-        <input value={todotext}
-               onChange={this.handleTextChange} />
-      </fieldset>
       </div>
     );
   }
