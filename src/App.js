@@ -2,34 +2,45 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class todoshechka extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.state = {todoname: '', todotext: ''};
-  }
 
-  handleNameChange(e) {
-   this.props.onNameChange(e.target.value);
-  }
+const tasks = ["sd", "ads", "asd", "asd"];
 
-  handleTextChange(e) {
-   this.props.onTextChange(e.target.value);
+class Header extends React.Component {
+  render() {
+    return (
+    <div>
+      <h1>Ваши незавершенные дела:</h1>
+        <TasksList/>
+    </div>
+    );
   }
-
 }
+
+function ListTask(props) {
+  return <li>{props.value}</li>;
+}
+
+function TasksList(props) {
+    // const tasks = props.tasks;
+    const listItems = tasks.map((task) =>
+      <ListTask key={task.toString()} value={task} />
+    );
+    return (
+      <ul>
+        {listItems}
+      </ul>
+
+    )};
 
 class App extends Component {
   render() {
-    const todoname = this.props.todoname;
-    const todotext = this.props.todotext;
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
             <h2>KoKo TODO App</h2>
         </div>
+        <Header/>
       </div>
     );
   }
