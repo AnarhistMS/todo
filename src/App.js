@@ -17,19 +17,29 @@ class Header extends React.Component {
 }
 
 function ListTask(props) {
-  return <li>{props.value}</li>;
+  return (
+  <table>
+    <tr>
+      <td>{props.value}</td>
+      <td>
+        <button>Done</button>
+      </td>
+    </tr>
+  </table>
+  );
 }
 
 function TasksList(props) {
     // const tasks = props.tasks;
     const listItems = tasks.map((task) =>
+    <div>
       <ListTask key={task.toString()} value={task} />
+    </div>
     );
     return (
-      <ul>
+      <div>
         {listItems}
-      </ul>
-
+      </div>
     )};
 
 class App extends Component {
